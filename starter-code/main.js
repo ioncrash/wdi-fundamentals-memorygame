@@ -1,4 +1,6 @@
 var board = document.getElementById("game-board");
+var win = 0;
+var lose = 0;
 var createBoard = function() {
 	var newCard;
 	for (var i = 0; i < cards.length; i+=1) {
@@ -27,9 +29,11 @@ var isTwoCards = function() {
 
 var isMatch = function() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
-		alert("it's a match!");
+		win +=1;
+		alert("it's a match! Current score is " + win + " wins, " + lose + " losses.");
 	} else {
-		alert("you lose!");
+		lose +=1;
+		alert("you lose! Current score is " + win + " wins, " + lose + " losses.");
 	}
 	for (i=0; i < document.getElementsByClassName('card').length; i++) {
 		document.getElementsByClassName('card')[i].innerHTML = '';
